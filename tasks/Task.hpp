@@ -5,6 +5,10 @@
 
 #include "ar_tracking/TaskBase.hpp"
 
+namespace artracking {
+    class ARTDriver;
+}
+
 namespace ar_tracking {
 
     /*! \class Task 
@@ -28,8 +32,8 @@ tasks/Task.cpp, and will be put in the ar_tracking namespace.
     {
 	friend class TaskBase;
     protected:
-
-
+        virtual ::base::samples::RigidBodyState getZeroOrigin();
+        artracking::ARTDriver* mpARTDriver;
 
     public:
         /** TaskContext constructor for Task

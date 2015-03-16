@@ -29,14 +29,21 @@ task_context "Task" do
     needs_configuration
 
     property("host", "/std/string").
-        doc "the network host of the vicon tracking system"
-    property("port", "int", 801).
+        doc "the network host of the ART tracking system"
+    property("server_port", "int", 50105).
+        doc "the network port to use for the vicon tracking system"
+    property("data_port", "int", 0).
         doc "the network port to use for the vicon tracking system"
 
-    property("subject",   "/std/string").
-        doc "the subject that is being tracked"
-    property("segment",   "/std/string").
-        doc "the segment of the subject that is tracked"
+    property("numBody","int",0).
+        doc "the number of the body that is being tracked"
+
+    property("origin", "/base/samples/RigidBodyState").
+        doc "set the origin of the segment, includes position and orientation."
+    
+    property("body_reference", "/base/samples/RigidBodyState").
+         doc "transformation between segment cs (vicon data)" +
+             "and a choosen body fixed reference cs"
 
     # An output port, i.e. an object to which the component pushes data so that
     # it is transmitted to other components' inputs
