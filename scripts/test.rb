@@ -13,10 +13,12 @@ Orocos.run 'ar_tracking::Task' => 'artDriver' do |p|
 
 	driver.host="131.176.25.107"
 	driver.server_port=5000
-	driver.data_port=0
+	driver.data_port=5000
+        driver.numBody=3 
 
 	driver.configure
-    driver.start
+	
+	driver.start
 
     reader = driver.pose_samples.reader
 

@@ -42,6 +42,13 @@ bool Task::configureHook()
     // No configuration needed apparently
     if (! TaskBase::configureHook())
         return false;
+    
+    if (!_origin.value().hasValidPosition() || !_origin.value().hasValidOrientation() ) 
+        _origin.set(getZeroOrigin());
+
+    if (!_body_reference.value().hasValidPosition() || !_body_reference.value().hasValidOrientation() ) 
+        _body_reference.set(getZeroOrigin());
+    
     return true;
 }
 bool Task::startHook()
@@ -60,8 +67,8 @@ void Task::updateHook()
     base::samples::RigidBodyState rbs;
     rbs.time = mpARTDriver->getTimestamp();
 
-    rbs.sourceFrame = _source_frame.get();
-    rbs.targetFrame = _target_frame.get();
+    //rbs.sourceFrame = _source_frame.get();
+    //rbs.targetFrame = _target_frame.get();
 
     Eigen::Affine3d segment_transform = mpARTDriver->getSegmentTransform(_numBody.value());
     
