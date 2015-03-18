@@ -30,13 +30,19 @@ task_context "Task" do
 
     property("host", "/std/string").
         doc "the network host of the ART tracking system"
-    property("server_port", "int", 50105).
+    property("server_port", "int", 5000).
         doc "the network port to use for the vicon tracking system"
     property("data_port", "int", 0).
         doc "the network port to use for the vicon tracking system"
 
     property("numBody","int",0).
         doc "the number of the body that is being tracked"
+
+    property("source_frame", "/std/string", "measurement").
+            doc "from frame for the transformer"
+    property("target_frame", "/std/string", "segment").
+            doc "to frame for the transformer"
+
 
     property("origin", "/base/samples/RigidBodyState").
         doc "set the origin of the segment, includes position and orientation."

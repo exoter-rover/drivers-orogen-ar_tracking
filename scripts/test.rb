@@ -11,8 +11,8 @@ Orocos.run 'ar_tracking::Task' => 'artDriver' do |p|
 	driver = p.task 'artDriver'
 	Orocos.log_all_ports
 
-	driver.host="127.0.0.1"
-	driver.server_port=50105
+	driver.host="131.176.25.107"
+	driver.server_port=5000
 	driver.data_port=0
 
 	driver.configure

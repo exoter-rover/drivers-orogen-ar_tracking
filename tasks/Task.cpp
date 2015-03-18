@@ -47,8 +47,7 @@ bool Task::configureHook()
 bool Task::startHook()
 {
     mpARTDriver->connect(_host.value(),_server_port.value(),_data_port.value());
-    if (! TaskBase::startHook())
-        return false;
+    
     return true;
 }
 void Task::updateHook()
@@ -60,6 +59,10 @@ void Task::updateHook()
 
     base::samples::RigidBodyState rbs;
     rbs.time = mpARTDriver->getTimestamp();
+
+    rbs.sourceFrame = _source_frame.get();
+    rbs.targetFrame = _target_frame.get();
+
     Eigen::Affine3d segment_transform = mpARTDriver->getSegmentTransform(_numBody.value());
     
 
