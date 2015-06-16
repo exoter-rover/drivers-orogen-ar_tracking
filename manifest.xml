@@ -3,6 +3,7 @@
   This package provides the orocos module for the Advanced Realtime Tracking System (ART). It allows to track a single subject as a rigid body state
   </description>
   <author>Karl Krespen/carlos.crespog@gmail.com</author>
+  <maintainer>Javier Hidalgo/javier.hidalgo_carrio@dfki.de</maintainer>
   <license></license>
   <url>http://</url>
   <logo>http://</logo>
